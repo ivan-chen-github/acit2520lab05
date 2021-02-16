@@ -19,8 +19,12 @@ app.get("/myForm", (req, res) => res.render("pages/myForm"));
 app.post("/myForm", (req, res) => {
   let formData = req.body;
   console.log(formData);
-  let movie = formData.movies.split(",")
-  console.log(movie)
+  let movieList = formData.movies.split(",")
+  console.log(movieList)
+
+  for (let i=0; i < movieList.length; i++){
+    res.render("pages/index", { movie: movieList[i] });
+  }
 });
 
 app.get("/myListQueryString", (req, res) => {
