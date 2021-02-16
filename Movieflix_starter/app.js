@@ -21,10 +21,7 @@ app.post("/myForm", (req, res) => {
   console.log(formData);
   let movieList = formData.movies.split(",")
   console.log(movieList)
-
-  for (let i=0; i < movieList.length; i++){
-    res.render("pages/index", { movie: movieList[i] });
-  }
+  res.render("pages/index", { movieList: movieList });
 });
 
 app.get("/myListQueryString", (req, res) => {
